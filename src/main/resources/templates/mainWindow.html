@@ -1,0 +1,99 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"/>
+</head>
+
+<head>
+    <div style="text-align: center;"><font size="6">Основное окно завода</font></div>
+</head>
+<table style = "border: solid 2px pink; background-color:lightyellow" class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>Название</th>
+        <th>Переход</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            Цеха
+        <th>
+            <input style = "border: solid 2px pink; " type="button" onclick="location.href='http://localhost:8080/buildings/workshops';" value="Перейти"/>
+        </th>
+    </tr>
+    <tr>
+        <td>
+            Лаборатории
+        <th>
+            <input style = "border: solid 2px pink; " type="button" onclick="location.href='http://localhost:8080/buildings/laboratories';"
+                   value="Перейти"/>
+        </th>
+    </tr>
+    <tr>
+        <td>
+            Рабочий персонал
+        <th>
+            <input style = "border: solid 2px pink; " type="button" onclick="location.href='http://localhost:8080/staff/allStaff';" value="Перейти"/>
+        </th>
+    </tr>
+    <tr>
+        <td>
+            Секции
+        <th>
+            <input style = "border: solid 2px pink; " type="button" onclick="location.href='http://localhost:8080/buildings/sections';" value="Перейти"/>
+        </th>
+    </tr>
+    <tr>
+        <td>
+            Конкретные продукты
+        <th>
+            <input style = "border: solid 2px pink; " type="button" onclick="location.href='http://localhost:8080/product/certainProducts';" value="Перейти"/>
+        </th>
+    </tr>
+    <tr>
+        <td>
+            Продукты
+        <th>
+            <input style = "border: solid 2px pink; " type="button" onclick="location.href='http://localhost:8080/product/allProducts';" value="Перейти"/>
+        </th>
+    </tr>
+    <tr>
+        <td>
+            Тип продуктов
+        <th>
+            <input style = "border: solid 2px pink; " type="button" onclick="location.href='http://localhost:8080/product/product_types';" value="Перейти"/>
+        </th>
+    </tr>
+    <tr>
+        <td>
+            Тип сотрудников
+        <th>
+            <input style = "border: solid 2px pink; " type="button" onclick="location.href='http://localhost:8080/staff/staff_types';" value="Перейти"/>
+        </th>
+    </tr>
+    <tr>
+        <td>
+            Производство
+        <th>
+            <input style = "border: solid 2px pink; " type="button" onclick="location.href='http://localhost:8080/creating/development';" value="Перейти"/>
+        </th>
+    </tr>
+    <tr>
+        <td>
+            Тестирование
+        <th>
+            <input style = "border: solid 2px pink; " type="button" onclick="location.href='http://localhost:8080/creating/productTestings';" value="Перейти"/>
+        </th>
+    </tr>
+    <tr>
+        <td>
+            Информация о продуктах
+        <th>
+            <input style = "border: solid 2px pink; " type="button" onclick="location.href='http://localhost:8080/product/allProductInfo';" value="Перейти"/>
+        </th>
+    </tr>
+    </tbody>
+</table>
+</html>

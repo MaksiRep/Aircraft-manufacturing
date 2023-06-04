@@ -1,0 +1,48 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"/>
+</head>
+
+<head>
+    <input style = "border: solid 2px pink; background-color:lightyellow" type="button" onclick="location.href='http://localhost:8080/main';" value="Перейти на главную"/>
+</head>
+
+<table style = "border: solid 2px pink; background-color:lightyellow" class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>Тип продукта</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="productType:${productTypes}">
+        <td>
+            <a th:href="@{/product/getProductByLaboratoryIdAnDateAndType/{laboratoryId}/{productTypeId}/{firstDate}/{secondDate}
+             (laboratoryId=${laboratoryId}, productTypeId=${productType.typeId}, firstDate=${firstDate}, secondDate=${secondDate})}"
+               th:text="${productType.name}"></a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<table style = "border: solid 2px pink; background-color:lightyellow" class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>Название</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="product:${products}">
+        <td>
+            <a th:href="@{/product/product/{productId} (productId=${product.id})}"
+               th:text="${product.id}"></a>
+        </td>
+        <td th:text="${product.name}"></td>
+    </tr>
+    </tbody>
+</table>
+
+
+</html>

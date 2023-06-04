@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+<div class="card-body p-4 p-md-5">
+    <form th:action="@{/product/addCertainProduct}" th:object="${certainProductRequest}" method="post">
+        <div class="row">
+            <label class="form-label" for="serialNumber">Серийный номер</label>
+            <input style = "border: solid 2px pink; background-color:lightyellow" th:field="*{serialNumber}" type="text" id="serialNumber" class="form-control form-control-lg"/>
+        </div>
+        <div class="row">
+            <label class="form-label" for="productId">id продукта</label>
+            <select style = "border: solid 2px pink; background-color:lightyellow" th:field="*{productId}"  id="productId" class="form-control form-control-lg">
+                <option th:each="productId:${productsIds}" th:value="${productId}" th:text="${productId}">
+
+                </option>
+            </select>
+        </div>
+        <div class="row">
+            <label class="form-label" for="startDate">Дата начала производства</label>
+            <input style = "border: solid 2px pink; background-color:lightyellow" th:field="*{startDate}" type="text" id="startDate" class="form-control form-control-lg"/>
+        </div>
+        <div class="row">
+            <label class="form-label" for="endDate">Дата окончания производства</label>
+            <input style = "border: solid 2px pink; background-color:lightyellow" th:field="*{endDate}" type="text" id="endDate" class="form-control form-control-lg"/>
+        </div>
+        <input style = "border: solid 2px pink; background-color:lightyellow" type="submit" value="Сохранить"/>
+    </form>
+</div>
+</body>
+</html>

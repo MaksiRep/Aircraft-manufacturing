@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+<table style = "border: solid 2px pink; background-color:lightyellow" class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Название</th>
+        <th>Вес (кг)</th>
+        <th>Максимальная высота полёта (м)</th>
+        <th>Максимальная скорость (м/с)</th>
+        <th>Тип продукта</th>
+    </tr>
+    </thead>
+    <tbody>
+    <td th:text="${id}"></td>
+    <td th:text="${name}"></td>
+    <td th:text="${weight}"></td>
+    <td th:text="${maxHeight}"></td>
+    <td th:text="${maxSpeed}"></td>
+    <td>
+        <a th:href="@{/product/product_type/{prodTypeId} (prodTypeId=${productType})}"
+           th:text="${productTypeName}"></a>
+    </td>
+    </tbody>
+</table>
+
+<div th:if="${productType} == 1">
+    <td>
+        <a th:href="@{/product/plane/{planeId} (planeId=${id})}">
+            <input style = "border: solid 2px pink; background-color:lightyellow" type="submit" class="center" value="Получить информацию о самолёте"/>
+        </a>
+    </td>
+</div>
+
+<div th:if="${productType} == 2">
+    <td>
+        <a th:href="@{/product/helicopter/{helicopterId} (helicopterId=${id})}">
+            <input style = "border: solid 2px pink; background-color:lightyellow" type="submit" class="center" value="Получить информацию о вертолете"/>
+        </a>
+    </td>
+</div>
+
+<div th:if="${productType} == 3">
+    <td>
+        <a th:href="@{/product/rockets/{rocketsId} (rocketsId=${id})}">
+            <input style = "border: solid 2px pink; background-color:lightyellow" type="submit" class="center" value="Получить информацию о ракете"/>
+        </a>
+    </td>
+</div>
+
+<div th:if="${productType} == 4">
+    <td>
+        <a th:href="@{/product/glider/{gliderId} (gliderId=${id})}">
+            <input style = "border: solid 2px pink; background-color:lightyellow" type="submit" class="center" value="Получить информацию о планере"/>
+        </a>
+    </td>
+</div>
+
+<div th:if="${productType} == 5">
+    <td>
+        <a th:href="@{/product/hang_glider/{hangGliderId} (hangGliderId=${id})}">
+            <input style = "border: solid 2px pink; background-color:lightyellow" type="submit" class="center" value="Получить информацию о дельтаплане"/>
+        </a>
+    </td>
+</div>
+
+
+<style>
+    .center {
+        padding: 10px ;
+    }
+</style>
+
+<form class="center" th:action="@{/product/deleteProduct/{productId} (productId=${id})}" method="post">
+    <input style = "border: solid 2px pink; background-color:lightyellow" type="submit" class="center" value="Удалить"/>
+</form>
+<form class="center" th:action="@{/product/updateProduct/{productId} (productId=${id})}" method="get">
+    <input style = "border: solid 2px pink; background-color:lightyellow" type="submit" class="center" value="Изменить"/>
+</form>
+
+</body>
+</html>

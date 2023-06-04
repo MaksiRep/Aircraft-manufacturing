@@ -1,0 +1,68 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"/>
+</head>
+
+<head>
+    <input style = "border: solid 2px pink; background-color:lightyellow" type="button" onclick="location.href='http://localhost:8080/main';" value="Перейти на главную"/>
+    <input style = "border: solid 2px pink; background-color:lightyellow" type="button" onclick="location.href='http://localhost:8080/buildings/addSection';"
+    value="Создать секцию"/>
+    <div style="text-align: center;"><font size="6">Секции</font></div>
+</head>
+
+<form onsubmit="window.location = 'http://localhost:8080/staff/section_workers/' + search.value; return false;">
+    <div><font size="4">Получить состав бригад указанного участка</font></div>
+    <select style = "border: solid 2px pink; background-color:lightyellow" id="search" class="form-control form-control-lg">
+        <option th:each="sectionid:${sectionIds}" th:value="${sectionid}" th:text="${sectionid}">
+        </option>
+    </select>
+    <input style = "border: solid 2px pink; background-color:lightyellow" type="submit" value="Поиск">
+</form>
+
+<form onsubmit="window.location = 'http://localhost:8080/staff/section_masters/' + searchMasters.value; return false;">
+    <div><font size="4">Получить список мастеров указанного участка</font></div>
+    <select style = "border: solid 2px pink; background-color:lightyellow" id="searchMasters" class="form-control form-control-lg">
+        <option th:each="sectionid:${sectionIds}" th:value="${sectionid}" th:text="${sectionid}">
+        </option>
+    </select>
+    <input style = "border: solid 2px pink; background-color:lightyellow" type="submit" value="Поиск">
+</form>
+
+<table style = "border: solid 2px pink; background-color:lightyellow" class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>Запрос</th>
+        <th>Переход</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            Получить число и перечень участков указанного цеха и их начальников.
+        </td>
+        <th>
+            <input style = "border: solid 2px pink;" type="button" onclick="location.href='http://localhost:8080/buildings/sectionsByWorkshopMain';" value="Перейти"/>
+        </th>
+    </tr>
+    </tbody>
+</table>
+<table style = "border: solid 2px pink; background-color:lightyellow" class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>Название</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="section:${sectionList}">
+        <td>
+            <a th:href="@{/buildings/section/{sectionId} (sectionId=${section.id})}"
+               th:text="${section.id}"></a>
+        </td>
+        <td th:text="${section.name}"></td>
+    </tr>
+    </tbody>
+</table>
+</html>

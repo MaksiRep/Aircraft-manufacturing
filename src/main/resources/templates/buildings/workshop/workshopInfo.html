@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+<table style = "border: solid 2px pink; background-color:lightyellow" class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Название</th>
+        <th>Адрес</th>
+        <th>Менеджер</th>
+    </tr>
+    </thead>
+    <tbody>
+    <td th:text="${id}"></td>
+    <td th:text="${name}"></td>
+    <td th:text="${address}"></td>
+    <td>
+        <a th:href="@{/staff/staff/{staffId} (staffId=${managerId})}"
+           th:text="${managerName}"></a>
+    </td>
+    </tbody>
+</table>
+<style>
+    .center {
+        padding: 10px ;
+    }
+</style>
+
+<form class="center" th:action="@{/buildings/workshop/delete/{workshopId} (workshopId=${id})}" method="post">
+    <input style = "border: solid 2px pink; background-color:lightyellow" type="submit" class="center" value="Удалить"/>
+</form>
+<form class="center" th:action="@{/buildings/workshop/getUpdate/{workshopId} (workshopId=${id})}" method="get">
+    <input style = "border: solid 2px pink; background-color:lightyellow" type="submit" class="center" value="Изменить"/>
+</form>
+
+</body>
+</html>

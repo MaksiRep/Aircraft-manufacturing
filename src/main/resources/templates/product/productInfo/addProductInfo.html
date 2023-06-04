@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+<div class="card-body p-4 p-md-5">
+    <form th:action="@{/product/product_info}" th:object="${productInfo}" method="post">
+        <div class="row">
+            <label class="form-label" for="productId">id продукта</label>
+            <select style = "border: solid 2px pink; background-color:lightyellow" th:field="*{productId}"  id="productId" class="form-control form-control-lg">
+                <option th:each="product:${products}" th:value="${product}" th:text="${product}">
+                </option>
+            </select>
+        </div>
+        <div class="row">
+            <label class="form-label" for="devCycleId">id цикла производства</label>
+            <select style = "border: solid 2px pink; background-color:lightyellow" th:field="*{devCycleId}"  id="devCycleId" class="form-control form-control-lg">
+                <option th:each="devCycle:${devCycles}" th:value="${devCycle}" th:text="${devCycle}">
+                </option>
+            </select>
+        </div>
+        <div class="row">
+            <label class="form-label" for="testingCycleId">id цикла тестирования</label>
+            <select style = "border: solid 2px pink; background-color:lightyellow" th:field="*{testingCycleId}"  id="testingCycleId" class="form-control form-control-lg">
+                <option th:each="testCycle:${testCycles}" th:value="${testCycle}" th:text="${testCycle}">
+                </option>
+            </select>
+        </div>
+        <div class="row">
+            <label class="form-label" for="workshopId">id цеха</label>
+            <select style = "border: solid 2px pink; background-color:lightyellow" th:field="*{workshopId}"  id="workshopId" class="form-control form-control-lg">
+                <option th:each="workshop:${workshops}" th:value="${workshop}" th:text="${workshop}">
+                </option>
+            </select>
+        </div>
+        <input style = "border: solid 2px pink; background-color:lightyellow" type="submit" value="Сохранить"/>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+<table style = "border: solid 2px pink; background-color:lightyellow" class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>Id продукта</th>
+        <th>Id цикла производства</th>
+        <th>Id цикла тестирования</th>
+        <th>Цех</th>
+    </tr>
+    </thead>
+    <tbody>
+    <td>
+        <a th:href="@{/product/product/{productId} (productId=${productId})}"
+           th:text="${productName}"></a>
+    </td>
+    <td>
+        <a th:href="@{/creating/development_cycle/{devCycleId} (devCycleId=${devCycleId})}"
+           th:text="${devCycleId}"></a>
+    </td>
+    <td>
+        <a th:href="@{/creating/testing_cycle/{testCycleId} (testCycleId=${testCycleId})}"
+           th:text="${testCycleId}"></a>
+    </td>
+    <td>
+        <a th:href="@{/buildings/workshop/{workshopId} (workshopId=${workshopId})}"
+           th:text="${workshopName}"></a>
+    </td>
+    </tbody>
+</table>
+<style>
+    .center {
+        padding: 10px ;
+    }
+</style>
+
+<form class="center" th:action="@{/product/product_info/delete/{productId} (productId=${productId})}" method="post">
+    <input style = "border: solid 2px pink; background-color:lightyellow" type="submit" class="center" value="Удалить"/>
+</form>
+<form class="center" th:action="@{/product/product_info/getUpdate/{productId} (productId=${productId})}" method="get">
+    <input style = "border: solid 2px pink; background-color:lightyellow" type="submit" class="center" value="Изменить"/>
+</form>
+
+</body>
+</html>

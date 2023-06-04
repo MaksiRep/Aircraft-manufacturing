@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<head>
+    <input  style = "border: solid 2px pink; background-color:lightyellow" type="button" onclick="location.href='http://localhost:8080/main';" value="Перейти на главную"/>
+</head>
+<body>
+<table  style = "border: solid 2px pink; background-color:lightyellow" class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>Id цикла</th>
+        <th>Номер шага в цикле</th>
+        <th>Секция</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="developmentCycle:${developmentCycleList}">
+        <td th:text="${developmentCycle.cycleId}"></td>
+        <td th:text="${developmentCycle.ordNum}"></td>
+        <td>
+            <a th:href="@{/buildings/section/{sectionId} (sectionId=${developmentCycle.sectionId})}"
+               th:text="${sectionNames.get(developmentCycle.ordNum)}"></a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
