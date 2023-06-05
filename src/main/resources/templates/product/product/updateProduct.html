@@ -24,9 +24,14 @@
             <label class="form-label" for="maxSpeed">Максимальная скорость (м/с)</label>
             <input style = "border: solid 2px pink; background-color:lightyellow" th:field="${oldProduct.maxSpeed}" type="text" id="maxSpeed" class="form-control form-control-lg"/>
         </div>
+
         <div class="row">
             <label class="form-label" for="productType">Тип продукта</label>
-            <input style = "border: solid 2px pink; background-color:lightyellow" th:field="${oldProduct.productType}" type="text" id="productType" class="form-control form-control-lg"/>
+            <select style = "border: solid 2px pink; background-color:lightyellow" th:field="${oldProduct.productType}"  id="productType" class="form-control form-control-lg">
+                <option th:each="prodType:${productTypesIds}" th:value="${prodType}" th:text="${prodType}">
+
+                </option>
+            </select>
         </div>
 
         <input style = "border: solid 2px pink; background-color:lightyellow" type="submit" value="Сохранить"/>

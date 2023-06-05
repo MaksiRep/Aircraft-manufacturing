@@ -274,4 +274,13 @@ public class ProductService {
     public String getProductTypeName (Integer productId) {
         return productRepository.getProductTypeName(productId);
     }
+
+    public List<Integer> getAllProductsTypesIds () {
+        var prodTypes = productTypeService.getAllProductTypes();
+        ArrayList<Integer> prodTypesIds = new ArrayList<>();
+        for (ProductType productType : prodTypes) {
+            prodTypesIds.add(productType.getTypeId());
+        }
+        return prodTypesIds;
+    }
 }

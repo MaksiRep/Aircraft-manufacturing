@@ -38,6 +38,7 @@ public class ProductController {
         model.addAttribute("product", new Product());
         model.addAttribute("oldProduct", productService.getProduct(productId));
         model.addAttribute("id", productId);
+        model.addAttribute("productTypesIds", productService.getAllProductsTypesIds());
         return "product/product/updateProduct";
     }
 
@@ -45,6 +46,7 @@ public class ProductController {
     @GetMapping("product/addProduct")
     public String getAddForm(Model model) {
         model.addAttribute("productRequest", new ProductRequest());
+        model.addAttribute("productTypesIds", productService.getAllProductsTypesIds());
         return "product/product/addProduct";
     }
 
